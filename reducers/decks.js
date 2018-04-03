@@ -1,5 +1,6 @@
 import {
-    ADD_DECK
+    ADD_DECK,
+    ACCEPT_DECKS
 } from '../utils/types'
 
 const decks = (state = {}, action) => {
@@ -8,6 +9,11 @@ const decks = (state = {}, action) => {
             return {
                 ...state,
                 ...action.deck
+            }
+        case ACCEPT_DECKS:
+            return {
+                ...state,
+                ...action.decks
             }
         default:
             return state

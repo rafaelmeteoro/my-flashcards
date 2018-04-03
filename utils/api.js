@@ -10,3 +10,8 @@ export const saveDeckTitle = (deckTitle) => {
         }
     }))
 }
+
+export const getDecks = () => {
+    return AsyncStorage.getItem(MY_FLASHCARDS_STORAGE_KEY)
+        .then(decks => JSON.parse(decks))
+}
