@@ -4,6 +4,7 @@ import { FormInput, FormValidationMessage } from 'react-native-elements'
 import TextHeader from './TextHeader'
 import CustomButton from './CustomButton'
 import { black } from '../utils/colors'
+import { connect } from 'react-redux'
 
 class AddDeckView extends Component {
 
@@ -82,4 +83,4 @@ const styles = StyleSheet.create({
     }    
 })
 
-export default AddDeckView
+export default connect()(AddDeckView)

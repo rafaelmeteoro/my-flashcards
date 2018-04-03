@@ -3,7 +3,7 @@ import { View, Platform } from 'react-native'
 import AddDeckView from './components/AddDeckView'
 import ListDeckView from './components/ListDeckView'
 import CustomStatusBar from './components/CustomStatusBar'
-import { purple, white } from './utils/colors'
+import { white, green } from './utils/colors'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
@@ -30,10 +30,10 @@ const Tabs = TabNavigator({
         header: null
     },
     tabBarOptions: {        
-        activeTintColor: Platform.OS === 'ios' ? purple : white,
+        activeTintColor: Platform.OS === 'ios' ? green : white,
         style: {            
             height: 50,
-            backgroundColor: Platform.OS === 'ios' ? white : purple,
+            backgroundColor: Platform.OS === 'ios' ? white : green,
             shadowColor: 'rgba(0, 0, 0, 0.24)',
             shadowOffset: {
                 width: 0,
@@ -57,7 +57,7 @@ export default class App extends React.Component {
         return (
             <Provider store={createStore(reducer)}>
                 <View style={{ flex: 1}}>
-                    <CustomStatusBar backgroundColor={purple} barStyle='light-content' />
+                    <CustomStatusBar backgroundColor={green} barStyle='light-content' />
                     <MainNavigator />
                 </View>
             </Provider>
