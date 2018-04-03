@@ -5,6 +5,8 @@ import TextHeader from './TextHeader'
 import CustomButton from './CustomButton'
 import { black } from '../utils/colors'
 import { connect } from 'react-redux'
+import { saveDeckTitle } from '../utils/api'
+import { addDeck } from '../actions';
 
 class AddDeckView extends Component {
 
@@ -30,8 +32,15 @@ class AddDeckView extends Component {
         } else {
             
             // Save deck
+            saveDeckTitle(title)
 
             // Dispatch action to update store
+            this.props.dispatch(addDeck({
+                [title]: {
+                    title: title,
+                    questions: []
+                }
+            }))
 
             // Hide Keyboard
             Keyboard.dismiss()
