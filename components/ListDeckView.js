@@ -36,7 +36,7 @@ class ListDeckView extends Component {
                     const deck = decks[title]
                     return (
                         <View key={position}>
-                            <DeckItem deck={deck} />
+                            <DeckItem deck={deck} navigate={this.props.navigation.navigate} />
                             <View style={styles.separator} />
                         </View>
                     )

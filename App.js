@@ -3,6 +3,7 @@ import { View, Platform } from 'react-native'
 import AddDeckView from './components/AddDeckView'
 import ListDeckView from './components/ListDeckView'
 import CustomStatusBar from './components/CustomStatusBar'
+import DeckView from './components/DeckView'
 import { white, green } from './utils/colors'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -48,6 +49,15 @@ const Tabs = TabNavigator({
 const MainNavigator = StackNavigator({
     Home: {
         screen: Tabs
+    },
+    DeckView: {
+        screen: DeckView,
+        navigationOptions: {
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: green
+            }
+        }
     }
 })
 

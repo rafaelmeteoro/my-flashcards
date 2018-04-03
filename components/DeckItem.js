@@ -4,7 +4,7 @@ import { getDeckDescription } from '../utils/helpers'
 import { gray, white, black } from '../utils/colors'
 
 export default DeckItem =({ deck, navigate }) => (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigate('DeckView', {title: deck.title})}>
         <View style={Platform.OS === 'ios' ? styles.containerIos : styles.containerAndroid}>
             <Text style={styles.title}>{deck.title}</Text>
             <Text style={styles.description}>{getDeckDescription(deck)}</Text>
