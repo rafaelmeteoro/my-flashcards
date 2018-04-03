@@ -25,12 +25,14 @@ class DeckView extends Component {
                     Add Card
                 </CustomButton>
                 <View style={{marginBottom: 20}} />
-                <CustomButton
-                    addStyle={{backgroundColor: green}}
-                    onPress={() => navigate('QuizView', { title: deck.title })}
-                >
-                    Start Quiz
-                </CustomButton>
+                {deck.questions.length > 0 && (
+                    <CustomButton
+                        addStyle={{backgroundColor: green}}
+                        onPress={() => navigate('QuizView', { title: deck.title })}
+                    >
+                        Start Quiz
+                    </CustomButton>
+                )}                
             </View>
         )
     }
