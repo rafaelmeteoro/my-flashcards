@@ -4,6 +4,8 @@ import AddDeckView from './components/AddDeckView'
 import ListDeckView from './components/ListDeckView'
 import CustomStatusBar from './components/CustomStatusBar'
 import DeckView from './components/DeckView'
+import AddCardView from './components/AddCardView'
+import QuizView from './components/QuizView'
 import { white, green } from './utils/colors'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -53,6 +55,26 @@ const MainNavigator = StackNavigator({
     DeckView: {
         screen: DeckView,
         navigationOptions: {
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: green
+            }
+        }
+    },
+    AddCardView: {
+        screen: AddCardView,
+        navigationOptions: {
+            title: 'Add Card',
+            headerTintColor: white,
+            headerStyle: {
+                backgroundColor: green
+            }
+        }
+    },
+    QuizView: {
+        screen: QuizView,
+        navigationOptions: {
+            title: 'Quiz',
             headerTintColor: white,
             headerStyle: {
                 backgroundColor: green

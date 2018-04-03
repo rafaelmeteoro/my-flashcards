@@ -20,12 +20,14 @@ class DeckView extends Component {
                 <Text style={styles.description}>{getDeckDescription(deck)}</Text>
                 <CustomButton
                     addStyle={{backgroundColor: red}}
+                    onPress={() => navigate('AddCardView', { title: deck.title })}
                 >
                     Add Card
                 </CustomButton>
                 <View style={{marginBottom: 20}} />
                 <CustomButton
                     addStyle={{backgroundColor: green}}
+                    onPress={() => navigate('QuizView', { title: deck.title })}
                 >
                     Start Quiz
                 </CustomButton>
