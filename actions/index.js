@@ -1,6 +1,7 @@
 import {
     ADD_DECK,
-    ACCEPT_DECKS
+    ACCEPT_DECKS,
+    ADD_CARD
 } from '../utils/types'
 
 export const addDeck = deck => ({
@@ -11,4 +12,10 @@ export const addDeck = deck => ({
 export const acceptDecks = decks => ({
     type: ACCEPT_DECKS,
     decks
+})
+
+export const addCard = (deckTitle, card) => ({
+    type: ADD_CARD,
+    deckTitle,
+    card
 })

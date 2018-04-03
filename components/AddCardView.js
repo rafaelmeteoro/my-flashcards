@@ -4,6 +4,8 @@ import { FormInput, FormValidationMessage } from 'react-native-elements'
 import { connect } from 'react-redux'
 import CustomButton from './CustomButton'
 import { black } from '../utils/colors'
+import { addCardToDeck } from '../utils/api'
+import { addCard } from '../actions'
 
 class AddCardView extends Component {
 
@@ -38,14 +40,17 @@ class AddCardView extends Component {
                 answerError: (answer === '' ? true : false)
             })
         } else {
+
             card = {
                 question,
                 answer
             }
 
             // Save card
+            addCardToDeck(title, card)
 
             // Dispatch update card
+            this.props.dispatch(addCard(title, card))
 
             // Hide keyboard
             Keyboard.dismiss()
