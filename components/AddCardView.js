@@ -19,14 +19,14 @@ class AddCardView extends Component {
     handleQuestion = (question) => {
         this.setState({
             question,
-            questionError: (question === '' ? true: false)
+            questionError: (question === '')
         })
     }
 
     handleAnswer = (answer) => {
         this.setState({
             answer,
-            answerError: (answer === '' ? true : false)
+            answerError: (answer === '')
         })
     }
 
@@ -36,8 +36,8 @@ class AddCardView extends Component {
 
         if (question === '' || answer === '') {
             this.setState({
-                questionError: (question === '' ? true : false),
-                answerError: (answer === '' ? true : false)
+                questionError: (question === ''),
+                answerError: (answer === '')
             })
         } else {
 

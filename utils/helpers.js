@@ -8,7 +8,7 @@ export const getDeckDescription = deck => {
     return length === 0 ? 'No questions' : (length === 1 ? `${length} question` : `${length} questions`)
 }
 
-const createNotification = () => ({
+const createNotification = {
     title: 'You need to study!',
     body: 'You did not take a quiz today',
     ios: {
@@ -20,7 +20,7 @@ const createNotification = () => ({
         stick: true,
         vibrate: true
     }
-})
+}
 
 export const setLocationNotification = () => {
     AsyncStorage.getItem(NOTIFICATION_KEY)
@@ -38,7 +38,7 @@ export const setLocationNotification = () => {
                             tomorrow.setMinutes(0)
 
                             Notifications.scheduleLocalNotificationAsync(
-                                createNotification(), {
+                                createNotification, {
                                     time: tomorrow,
                                     repeat: 'day'
                                 }

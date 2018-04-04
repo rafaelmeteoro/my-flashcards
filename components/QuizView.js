@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import TextHeader from './TextHeader'
-import { red, green } from '../utils/colors'
+import { red, green, black } from '../utils/colors'
 import CustomButton from './CustomButton'
 import { setLocationNotification, clearLocalNotification } from '../utils/helpers'
+import { NavigationActions } from 'react-navigation'
 
 class QuizView extends Component {
 
@@ -19,9 +20,9 @@ class QuizView extends Component {
     }
 
     showResult = (answersCorrect, questions) => {
-        let percent = (answersCorrect / questions * 100).toFixed(2)
-        let questionsText =  `You have hit ${answersCorrect} of ${questions} ${questions === 1 ? 'question' : 'questions'}!`
-        let percentText = `Your hit rate is ${percent}%`
+        const percent = (answersCorrect / questions * 100).toFixed(2)
+        const questionsText =  `You have hit ${answersCorrect} of ${questions} ${questions === 1 ? 'question' : 'questions'}!`
+        const percentText = `Your hit rate is ${percent}%`
         return `${questionsText}\n${percentText}`
     }
 
@@ -51,6 +52,20 @@ class QuizView extends Component {
         this.showNext()
     }
 
+    restartQuiz = () => {
+        this.setState({
+            index: 0,
+            answersCorrect: 0,
+            showQuest: true
+        })
+    }
+
+    backToDeck = () => {
+        this.props.navigation.dispatch(NavigationActions.back({
+            key: null
+        }))
+    }
+
     render() {
 
         const { deck } = this.props
@@ -67,6 +82,18 @@ class QuizView extends Component {
                 <View style={styles.container}>
                     <View style={styles.question}>
                         <TextHeader>{this.showResult(answersCorrect, deck.questions.length)}</TextHeader>
+                        <CustomButton
+                            addStyle={styles.btnRestart}
+                            onPress={this.restartQuiz}
+                        >
+                            Restart Quiz
+                        </CustomButton>
+                        <CustomButton
+                            addStyle={styles.btnBack}
+                            onPress={this.backToDeck}
+                        >
+                            Back to Deck
+                        </CustomButton>
                     </View>
                 </View>
             )
@@ -145,6 +172,14 @@ const styles = StyleSheet.create({
         backgroundColor: green
     },
     btnIncorrect: {
+        backgroundColor: red
+    },
+    btnRestart: {
+        marginTop: 60,
+        marginBottom: 20,
+        backgroundColor: black
+    },
+    btnBack: {
         backgroundColor: red
     }
 })

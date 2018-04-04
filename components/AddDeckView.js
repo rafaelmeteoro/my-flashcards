@@ -18,7 +18,7 @@ class AddDeckView extends Component {
     handleTitle = (title) => {
         this.setState(() => ({
             title,
-            titleError: (title === '' ? true: false)
+            titleError: (title === '')
         }))
     }
 
@@ -49,6 +49,9 @@ class AddDeckView extends Component {
             this.setState({
                 title: ''
             })
+
+            // Navigate to DeckView
+            this.props.navigation.navigate('DeckView', { title })
         }
     }
 
