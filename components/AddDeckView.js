@@ -49,6 +49,9 @@ class AddDeckView extends Component {
             this.setState({
                 title: ''
             })
+
+            // Navigate to DeckView
+            this.props.navigation.navigate('DeckView', { title })
         }
     }
 
