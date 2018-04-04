@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import TextHeader from './TextHeader'
 import { red, green } from '../utils/colors'
 import CustomButton from './CustomButton'
+import { setLocationNotification, clearLocalNotification } from '../utils/helpers'
 
 class QuizView extends Component {
 
@@ -57,6 +58,10 @@ class QuizView extends Component {
 
         // No cards to show
         if (index === deck.questions.length) {
+
+            // Clear notification and set tomorrow
+            clearLocalNotification()
+                .then(setLocationNotification)
 
             return (
                 <View style={styles.container}>

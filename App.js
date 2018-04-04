@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import { MaterialIcons } from '@expo/vector-icons'
+import { setLocationNotification } from './utils/helpers'
 
 const Tabs = TabNavigator({
     ListDeckView: {
@@ -84,6 +85,10 @@ const MainNavigator = StackNavigator({
 })
 
 export default class App extends React.Component {
+
+    componentDidMount() {
+        setLocationNotification()
+    }
 
     render() {
         return (
