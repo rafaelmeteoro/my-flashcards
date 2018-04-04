@@ -20,9 +20,9 @@ class QuizView extends Component {
     }
 
     showResult = (answersCorrect, questions) => {
-        let percent = (answersCorrect / questions * 100).toFixed(2)
-        let questionsText =  `You have hit ${answersCorrect} of ${questions} ${questions === 1 ? 'question' : 'questions'}!`
-        let percentText = `Your hit rate is ${percent}%`
+        const percent = (answersCorrect / questions * 100).toFixed(2)
+        const questionsText =  `You have hit ${answersCorrect} of ${questions} ${questions === 1 ? 'question' : 'questions'}!`
+        const percentText = `Your hit rate is ${percent}%`
         return `${questionsText}\n${percentText}`
     }
 

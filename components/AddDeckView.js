@@ -18,7 +18,7 @@ class AddDeckView extends Component {
     handleTitle = (title) => {
         this.setState(() => ({
             title,
-            titleError: (title === '' ? true: false)
+            titleError: (title === '')
         }))
     }
 
